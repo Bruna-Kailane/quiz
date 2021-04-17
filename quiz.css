@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rye", cursive;
+  color: #33313b;
+  text-shadow: 2px 2px 8px #f6f5f5;
+  background-color: #e3c4a8;
+}
+
+.container {
+  width: 1200px;
+  height: 767px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.inicio{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f6f5f555;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.jogo{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f5f555;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.tela-opcoes{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f5f555;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.finalizacao{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f5f555;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.acerto{
+  color: rgb(9, 255, 0);
+}
+.erro{
+  color: rgb(255, 0, 0);
+}
+
+h1 {
+  font-size: 90px;
+  text-align: center;
+  padding: 30px;
+}
+
+h2 {
+  font-size: 50px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  color: #33313b;
+  text-shadow: 2px 2px 8px #f6f5f5, -2px -2px 8px #f6f5f5, 02px 2px 8px #f6f5f5,
+    2px -2px 8px #f6f5f5;
+  font-family: "Rye", cursive;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 8px #4592af;
+}
+
+.mensagem {
+  flex: 1;
+  background-color: #f6f5f555;
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 35px;
+  text-align: center;
+  /* display: none; */
+}

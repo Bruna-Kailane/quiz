@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="quiz.css">
+    <title>QUIZ</title>
+    </head>
+
+<body>
+   
+    <div class="container mb=5">
+        
+        <div class="inicio">
+            <h1> QUIZ</h1>
+            <div>
+                <label for="categoria">Escolha a Categoria</label>
+                <select id="categoria"></select>
+            </div>
+            <div>
+                <label for="dificuldades">Escolha a Dificuldade</label>
+                <select id="dificuldades">
+                    <option value="any">Aleatorio</option>
+                    <option value="easy">Facil</option>
+                    <option value="medium">Medio</option>
+                    <option value="hard">Dificil</option>
+                </select>
+            </div>
+            <button class="btn btn-primary jogar">Jogar</button>
+        </div> 
+
+        <div class="jogo">
+            <h1> QUIZ</h1>
+            <p class="pergunta"></p>
+            <div class="respostas"></div>
+            
+            <div>
+                <button type="button" class="btn btn-info pular">Responder Mais Tarde</button>
+                <button type="button" class="btn btn-info responder">Responder</button>
+            </div>
+
+            <p class="pontos"></p>
+        </div>
+
+        <div class="tela-opcoes">
+            <button type="button" class="btn btn-info responder-tarde">Responder Mais Tarde</button>
+            <button type="button" class="btn btn-info continuar">Continuar</button>
+        </div>
+
+        <div class="finalizacao">
+            <p class="tabela"></p>
+            <button type="button" class="btn btn-info reiniciar">Reiniciar</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
