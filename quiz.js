@@ -90,28 +90,27 @@ const guardarPergunta = ()=>{
         mostrarPergunta();
     }
     else{
-        console.log('ja tem pergunta guardada');
-        
+        alert('Você já possui uma pergunta guardada');
     }
 }
 
 const responderTarde = () => {
-    console.log('responder mais tarde');
-    console.log(perguntaGuardada);
+    if (perguntaGuardada != null) {
+        listaPergunta.push(perguntaGuardada);
+        i = listaPergunta.length-1;
+        renderizarPergunta(perguntaGuardada);
 
-    renderizarPergunta(perguntaGuardada);
+    }else{
+        alert('Você ainda não possui uma pergunta guardada');
+    }
 }
-
-
 
 function telaOp() {  
     telaInicial.style.display = 'none';
     telaOpcoes.style.display = 'flex';
     telaJogo.style.display = 'none';
 
-    if (perguntaGuardada != null) {
-        buttonResponderTarde.addEventListener('click', () => responderTarde());
-    }
+    buttonResponderTarde.addEventListener('click', () => responderTarde());
     buttonContinuar.addEventListener('click', () => mostrarPergunta());
 }
 
@@ -121,8 +120,10 @@ const responder = () => {
 
     if (selecionado != null) {
         selecionado.value;
+        console.log(selecionado);
+        
 
-        pontuacao(selecionado.value);
+       pontuacao(selecionado.value);
 
         divRespostas.innerHTML='';
         for (const alternativa of resp) {

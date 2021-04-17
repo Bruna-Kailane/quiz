@@ -9,8 +9,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Rye", cursive;
-  color: #33313b;
-  text-shadow: 2px 2px 8px #f6f5f5;
+  color: #000000;
+  text-shadow: 2px 2px 8px #fdb6b6;
   background-color: #e3c4a8;
 }
 
@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #f6f5f555;
+  background-color: #f0b29faf;
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
