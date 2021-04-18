@@ -22,6 +22,7 @@ let perguntaGuardada;
 let i;
 let resp = [];
 let pontos =0;
+let pontosTarde =0;
 let erro =0;
 let qtdeRespostas =0;
 
@@ -39,31 +40,24 @@ buttonJogar.addEventListener('click', () => {
 
     const selectedIndex2 = cat.selectedIndex;
     categoria = cat.options[selectedIndex2].value;
-    console.log(categoria);
 
     const selectedIndex = difi.selectedIndex;
     dificuldade = difi.options[selectedIndex].value;
-    console.log(dificuldade);
-
+  
     linkCategoria = `&category=${categoria}`
     linkDificuldade = `&difficulty=${dificuldade}`
 
     let link = 'https://opentdb.com/api.php?amount=10';
     
     if(categoria === 'any' && dificuldade !== 'any'){
-        console.log('dificuldade escolhida');
         link = `${link}${linkDificuldade}`;
     }
     else if(categoria !== 'any' && dificuldade === 'any'){
-        console.log('categoria escolhida');
         link = `${link}${linkCategoria}`;
     }
     else if(categoria !== 'any' && dificuldade !== 'any'){
-        console.log('os 2 escolhidos');
         link = `${link}${linkCategoria}${linkDificuldade}`;
     }
-
-   console.log(`----------------${link}`);
    
     axios.get(`${link}`,{
         params: {
@@ -72,18 +66,15 @@ buttonJogar.addEventListener('click', () => {
     }).then((response) => {
         const aux = JSON.stringify(response.data.results);
         listaPergunta = JSON.parse(aux);
-        console.log(listaPergunta);    
         
         mostrarPergunta();
         buttonPular.addEventListener('click', () => guardarPergunta());
         buttonResponder.addEventListener('click', () => responder());
-   }); 
-    
+   });  
 });
 
 const guardarPergunta = ()=>{
-    
-    if (perguntaGuardada == null) {
+    if (perguntaGuardada == undefined) {
         perguntaGuardada = listaPergunta[i];
         listaPergunta.splice(i, 1);
         // remove pegunta na posição do índice i
@@ -95,13 +86,15 @@ const guardarPergunta = ()=>{
 }
 
 const responderTarde = () => {
-    if (perguntaGuardada != null) {
+    console.log(perguntaGuardada);
+    if (perguntaGuardada != null && erro < 3) {
+        pontosTarde = 1;
         listaPergunta.push(perguntaGuardada);
         i = listaPergunta.length-1;
-        renderizarPergunta(perguntaGuardada);
-
+        perguntaGuardada = null;
+        renderizarPergunta(listaPergunta[i]);
     }else{
-        alert('Você ainda não possui uma pergunta guardada');
+        console.log('ainda não possui pergunta guardada');
     }
 }
 
@@ -117,13 +110,12 @@ function telaOp() {
 const responder = () => {
     const selecionado = document.querySelector('input[name="resposta"]:checked');
     let contagem = 0;
+    console.log(`pontos: ${pontosTarde}`);
 
     if (selecionado != null) {
         selecionado.value;
-        console.log(selecionado);
-        
-
-       pontuacao(selecionado.value);
+    
+        pontuacao(selecionado.value);
 
         divRespostas.innerHTML='';
         for (const alternativa of resp) {
@@ -150,14 +142,13 @@ const responder = () => {
             }
         }, 1000);       
     }
-
 }
 
 function pontuacao(selecionado) {
     mostrarPontuacao.innerHTML ='';
     let aux ='';
 
-    if (selecionado === listaPergunta[i].correct_answer) {
+    if (selecionado === listaPergunta[i].correct_answer && pontosTarde === 0) {
         if (listaPergunta[i].difficulty === 'easy') {
             pontos += 5;
             aux = '+5';
@@ -169,7 +160,18 @@ function pontuacao(selecionado) {
             aux = '+10';
         }
         console.log(`PARABENS ACERTOU ${pontos}`); 
-    } else {
+    }else if(selecionado === listaPergunta[i].correct_answer && pontosTarde === 1) {
+        if (listaPergunta[i].difficulty === 'easy') {
+            pontos += 3;
+            aux = '+3';            
+        }else if (listaPergunta[i].difficulty === 'medium') {
+            pontos += 6;
+            aux = '+6';
+        }else{
+            pontos += 8;
+            aux = '+8';
+        }
+    }else {
         erro++;
         if (listaPergunta[i].difficulty === 'easy') {
             pontos -= 5;
@@ -186,6 +188,7 @@ function pontuacao(selecionado) {
 
     mostrarPontuacao.innerHTML = `<p>Pontuacao desta Jogada:${aux} Total:${pontos}</p>`;
     aux = '';
+    pontosTarde =0;
 }
 
 const mostrarPergunta = ()=>{
@@ -249,6 +252,8 @@ const zerar = () =>{
     resp = [];
     pontos = 0;
     erro = 0; 
+    perguntaGuardada = null;
+    pontosTarde = 0;
 }
 
 function finalizacao() {
