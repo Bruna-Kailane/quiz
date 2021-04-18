@@ -10,8 +10,8 @@ body {
   align-items: center;
   font-family: "Rye", cursive;
   color: #000000;
-  text-shadow: 2px 2px 8px #fdb6b6;
-  background-color: #e3c4a8;
+  text-shadow: 2px 2px 8px #f5d5d5da;
+  background-color: #ffffff;
 }
 
 .container {
@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #f0b29faf;
+  background-color: #f0b29f77;
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
@@ -37,7 +37,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f6f5f555;
+  background-color: #f0b29f77;
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
@@ -48,7 +48,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f6f5f555;
+  background-color: #f0b29f77;
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f6f5f555;
+  background-color: #f0b29f77;
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
@@ -97,18 +97,3 @@ button {
   box-shadow: 0 0 8px #4592af;
 }
 
-.mensagem {
-  flex: 1;
-  background-color: #f6f5f555;
-  margin: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  font-size: 35px;
-  text-align: center;
-  /* display: none; */
-}

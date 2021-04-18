@@ -81,7 +81,9 @@ const guardarPergunta = ()=>{
         mostrarPergunta();
     }
     else{
-        alert('Você já possui uma pergunta guardada');
+       // alert('Você já possui uma pergunta guardada');
+       console.log('Você já possui uma pergunta guardada');
+       
     }
 }
 
@@ -250,6 +252,7 @@ const zerar = () =>{
     erro = 0; 
     perguntaGuardada = null;
     pontosTarde = 0;
+    qtdeRespostas = 0;
 }
 
 function finalizacao() {
