@@ -110,7 +110,6 @@ function telaOp() {
 const responder = () => {
     const selecionado = document.querySelector('input[name="resposta"]:checked');
     let contagem = 0;
-    console.log(`pontos: ${pontosTarde}`);
 
     if (selecionado != null) {
         selecionado.value;
@@ -159,7 +158,7 @@ function pontuacao(selecionado) {
             pontos += 10;
             aux = '+10';
         }
-        console.log(`PARABENS ACERTOU ${pontos}`); 
+
     }else if(selecionado === listaPergunta[i].correct_answer && pontosTarde === 1) {
         if (listaPergunta[i].difficulty === 'easy') {
             pontos += 3;
@@ -183,7 +182,6 @@ function pontuacao(selecionado) {
             pontos -= 10;
             aux = '-10';
         }
-        console.log(`ERROU ${pontos}`);
     }
 
     mostrarPontuacao.innerHTML = `<p>Pontuacao desta Jogada:${aux} Total:${pontos}</p>`;
@@ -196,8 +194,6 @@ const mostrarPergunta = ()=>{
     console.log(`pergunta atual ${i}`);
     
     if(listaPergunta.length > 0 && erro < 3){
-        console.log('entrou');
-        
        renderizarPergunta(listaPergunta[i]);
     }
     else{
